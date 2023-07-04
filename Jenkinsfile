@@ -13,13 +13,13 @@ pipeline {
       }
     }
 
-    stage('Unit Test') {
+    stage('Static Analysis') {
       steps {
         sh './mvnw "-Dtest=**/petclinic/*/*.java" test'
       }
     }
 
-    stage('Static Analysis') {
+    stage('Unit Test') {
       steps {
         sh './mvnw "-Dtest=**/petclinic/*/*.java" test'
       }
