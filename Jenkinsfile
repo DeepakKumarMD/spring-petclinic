@@ -15,7 +15,11 @@ pipeline {
 
     stage('Static Analysis') {
       steps {
-        sh './mvnw "-Dtest=**/petclinic/*/*.java" test'
+        sh '''./mvn clean verify sonar:sonar \\
+  -Dsonar.projectKey=Petclinic1 \\
+  -Dsonar.projectName=\'Petclinic1\' \\
+  -Dsonar.host.url=http://13.233.5.63:9000 \\
+  -Dsonar.token=sqp_d5b00a89b5076394d62cc3ab0f9d76ac0a7effd8'''
       }
     }
 
